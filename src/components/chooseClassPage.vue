@@ -11,14 +11,14 @@
 
 
     <div class="content">
-      <div class="classTag2"><span class="className" @click="goClassPage('军理')">军理（上）</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('军理')">军理（下）</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('毛概')">毛概</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('近代史')">近代史</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('思修')">思修</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('马克思')">马克思</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage('C语言（上）')"> C语言（上）</span></div>
-      <div class="classTag2"><span class="className" @click="goClassPage(' C语言（下）')"> C语言（下）</span></div>
+      <div class="classTag2"  @click="goClassPage('军理')"><span class="className">军理（上）</span></div>
+      <div class="classTag2"  @click="goClassPage('军理')"><span class="className">军理（下）</span></div>
+      <div class="classTag2"  @click="goClassPage('毛概')"><span class="className" >毛概</span></div>
+      <div class="classTag2"  @click="goClassPage('近代史')"><span class="className" >近代史</span></div>
+      <div class="classTag2"  @click="goClassPage('思修')"><span class="className" >思修</span></div>
+      <div class="classTag2"  @click="goClassPage('马克思')"><span class="className">马克思</span></div>
+      <div class="classTag2"  @click="goClassPage('C语言（上）')"><span class="className" > C语言（上）</span></div>
+      <div class="classTag2"  @click="goClassPage(' C语言（下）')"><span class="className" > C语言（下）</span></div>
 
 
     </div>

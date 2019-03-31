@@ -1,5 +1,6 @@
 <template>
 	<div class='tk-question'>
+		<input type="radio" value='B' v-model="currentAnswer">
 		<div class='q-title' :id="'question'+identify">{{index}}、{{question}}</div>
 		<div class='q-option' v-for='(item, i) in tempOption'>
 			<div class='q-checkbox' v-if='currentType==="checkbox"'>
@@ -18,7 +19,6 @@
 				<input
 					type='radio'
 					:id="identify+'-'+i"
-					:name='question'
 					:value="check[i]"
 					class='checkbox'
 					:disabled="disable"
@@ -174,9 +174,12 @@
 					if(option3) option3.innerHTML = option3.innerHTML.replace(this.bold, "<strong>" + this.bold + "</strong>" );
 				}, 200)
 			}
-      let question = document.getElementById('question'+this.identify);
-      question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
-      question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
+
+
+			let question = document.getElementById('question'+this.identify);
+			question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
+			question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
+
 		}
 	}
 </script>
@@ -214,7 +217,7 @@
 			@include wh(6.1rem, 6.1rem);
 			bottom: -3rem;
 			right: -3rem;
-			background-color: #e8e8e8;
+			background-color: rgba(0, 0, 0, .1);
 			border-radius: 100%;
 			&>div{
 				position: absolute;
@@ -267,7 +270,6 @@
 		  background-color: $tk-bc;
 	  }
 	}
-	/* 多选 */
 	input[type="checkbox"] {
 		position: absolute;
 		@include wh(1rem, 1rem);

@@ -1,6 +1,12 @@
 <template>
 	<div class='wrong'>
 		<div v-for='(unit, num1) in data'>
+			<transition name='fade-in'>
+				<div class='title' @click='showQ(num1)'>
+					<div>第{{num1}}章</div>
+					<div>{{chapterShow[num1]}}</div>
+				</div>
+			</transition>
 			<transition-group
 				name="list-fade"
 				v-bind:css="false"
@@ -13,9 +19,9 @@
 					v-for='(item, num2) in unit'
 					:key='item.ID'
 					:data-index="num2"
-					v-show='item.ID%38===0 && chapterShow[num1]'>
+					v-show='item.ID%9===0 && chapterShow[num1]'>
 					<tk-question 
-						:key='item.ID'
+						:key='item.ID+item.QuestionStr'
 						:identify="item.ID"
 						:type='item.Mode' 
 						:ifShowStar='true' 
@@ -37,6 +43,7 @@
 <script>
 	import {getText} from '../../../axios/api.js'
 	import Question from '../../plug/tiku-question.vue'
+	import {startLoading, stopLoading} from '../../plug/loading.js'
 	export default {
 		el: '#wrong',
 		components:{
@@ -48,75 +55,6 @@
 				chapterShow:[],
 
 				data:[],
-
-				chapter:[
-					{
-						num: 1,
-						title: '你的思想有问题',
-						questions:[
-							{
-								type: 'radio',
-								index: 1,
-								question: '人生观的核心是()',
-								option:[
-									'人生价值',
-									'人生目的',
-									'人生态度',
-									'人生信仰'
-								],
-								answer: [2]
-							},
-							{
-								type: 'checkbox',
-								index: 100,
-								question: '下列哪些选项内容代表了拜金主义的人生观',
-								option:[
-									'人生的价值',
-									'人生的目的',
-									'人生的态度',
-									'人生的信仰'
-								],
-								answer: [0, 1]
-							},
-						]
-					},
-					{
-						num: 2,
-						title: '你的思想依然有问题',
-						questions:[
-							{
-								type: 'radio',
-								index: 1,
-								question: '人生观的核心是什么()',
-								option:[
-									'人生价值',
-									'人生目的',
-									'人生态度',
-									'人生信仰'
-								],
-								answer:[3]
-							},
-							{
-								type: 'checkbox',
-								index: 100,
-								question: '下列哪些选项内容代表了拜金主义的人生观()',
-								option:[
-									'人生价值',
-									'人生目的',
-									'人生态度',
-									'人生信仰'
-								],
-								answer:[1, 2]
-							},
-							{
-								type: 'judge',
-								index: 150,
-								question: '人的生命过程只是一个自然过程吗',
-								answer:false
-							},
-						]
-					}
-				]
 			};
 		},
 		methods:{
@@ -153,20 +91,24 @@
 			}
 		},
 		mounted(){
+			startLoading();
 			getText(0, 0).then(
 				(res)=>{
 					// console.log(res.data);
 					this.data.push(res.data);
 					this.chapterShow[this.data.length-1]=false
+					getText(0, 1).then(
+						(res)=>{
+							// console.log(res.data);
+							this.data.push(res.data);
+							this.chapterShow[this.data.length-1]=false
+							stopLoading();
+						}
+					)
 				}
+				
 			);
-			getText(0, 1).then(
-				(res)=>{
-					// console.log(res.data);
-					this.data.push(res.data);
-					this.chapterShow[this.data.length-1]=false
-				}
-			)
+			
 		}
 	}
 </script>

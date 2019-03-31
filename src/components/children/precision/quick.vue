@@ -14,9 +14,7 @@
           :ifStar='true'
           :index='item.ID'
           :question='item.QuestionStr'
-
           :disable='true'
-
           :answer='item.Answer'
           :option='[item.ChoosenA, item.ChoosenB, item.ChoosenC, item.ChoosenD]'
           @offStar="remove(num1, num2)"
