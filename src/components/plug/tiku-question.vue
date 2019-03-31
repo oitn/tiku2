@@ -17,7 +17,7 @@
 			<div class='q-checkbox' v-if='currentType!=="checkbox"'>
 				<input
 					type='radio'
-					:id="identify+'-'+i" 
+					:id="identify+'-'+i"
 					:name='question'
 					:value="check[i]"
 					class='checkbox'
@@ -65,7 +65,7 @@
 				@change: 用户改变答案，返回的参数和answer一样
 			使用参考wrong和exam/paper，不保证不会出bug
 		*/
-		
+
 		props:['type', 'ifShowStar', 'ifStar', 'index', 'question', 'onChoose', 'disable', 'option', 'answer', 'identify', 'bold'],
 
 		data() {
@@ -158,13 +158,11 @@
 					this.currentAnswer = "B";
 				}
 			}
-		
+
 			// 加粗
 			if(this.bold){
 				let question = document.getElementById('question'+this.identify);
 				question.innerHTML = question.innerHTML.replace(this.bold, "<strong>" + this.bold + "</strong>" );
-				question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
-				question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
 				setTimeout(()=>{
 					let option0 = document.getElementById("option"+this.identify+0);
 					let option1 = document.getElementById("option"+this.identify+1);
@@ -176,7 +174,9 @@
 					if(option3) option3.innerHTML = option3.innerHTML.replace(this.bold, "<strong>" + this.bold + "</strong>" );
 				}, 200)
 			}
-		
+      let question = document.getElementById('question'+this.identify);
+      question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
+      question.innerHTML = question.innerHTML.replace("&amp;nbsp;", " " );
 		}
 	}
 </script>
@@ -239,7 +239,7 @@
 				line-height: 1em;
 			}
 		}
-		
+
 	}
 
 
@@ -291,8 +291,8 @@
 		  background-color: #A4845D;
 	  }
 	}
-	
-	
+
+
 .star-enter-active {
   transition: all .2s ease;
 }
@@ -307,6 +307,6 @@
 .star-leave-to{
 	/* transform: translateX(80vw); */
   opacity: 0;
-}	
-	
+}
+
 </style>

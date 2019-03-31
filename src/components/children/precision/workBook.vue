@@ -10,7 +10,8 @@
           class='checkbox'
           v-model="currentAnswer"
           :value="check[index]"
-        >{{item}}
+        >
+        {{item}}
       </div>
 
       <div class='star'>
@@ -42,9 +43,9 @@
         count: 70,
         data: [],//全部习题
         singleExam: [],//当前习题
-        singleAnswer: [],//当前答案
+        singleAnswer: [],//正确答案
         inputType: 'radio',//输入框类别  保存进度需保存这个
-        currentAnswer: [],
+        currentAnswer: [],//提交的答案
         check: ["A", "B", "C", "D"]
       }
     },
@@ -86,7 +87,7 @@
           )
         }
         if (this.singleExam[0].Mode == 'mul') {
-          this.inputType = 'checkBox';
+          this.inputType = 'checkbox';
           this.singleAnswer.push(
             "A.  " + this.data[0][this.count].ChoosenA,
             "B.  " + this.data[0][this.count].ChoosenB,
@@ -100,17 +101,38 @@
         }
       },
 
-      //确认答案
+      //答案分类
       confirmAnswer() {
-
         console.log('你的答案', this.currentAnswer);
-        if (this.singleExam[0].Answer == this.currentAnswer) {
+        switch (this.singleExam[0].Mode) {
+          case "sig" :
+            this.judge(this.currentAnswer);
+            break;
+          case  'mul':
+            let a = '';
+            for (let b = 0; b < this.currentAnswer.length; b++) {
+              a = a + this.currentAnswer[b];
+            }
+            this.judge(a);
+            break;
+          case  'jud':
+            if (this.currentAnswer == 'A') {
+              this.judge('是');
+            } else this.judge('否');
+        }
+      },
+
+      //确认答案
+      judge(a) {
+        if (this.singleExam[0].Answer == a) {
           alert('答案正确')
         }
         else {
           alert("回答错误")
         }
+
       }
+
 
     }
   }
@@ -140,7 +162,7 @@
     }
     .examAnswer {
       margin-left: 1.4rem;
-      padding-bottom: .7rem;
+      padding-bottom: 1rem;
 
     }
   }
