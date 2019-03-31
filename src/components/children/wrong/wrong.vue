@@ -1,31 +1,6 @@
 <template>
 	<div class='wrong'>
 		<div v-for='(unit, num1) in data'>
-<<<<<<< HEAD
-			<div class='title' @click='showQ(num1)'>
-				<div>第{{num1}}章</div>
-				<div>{{chapterShow[num1]}}</div>
-=======
-			<div class='title'>
-				<div>第{{chapter.num}}章</div>
-				<div>{{chapter.title}}</div>
-			</div>
-			<div class='question' v-for='(item, num2) in unit' :key='item.ID' v-show='item.ID%18===0'>
-				<tk-question
-					:identify="item.ID"
-					:type='item.Mode'
-					:ifShowStar='true'
-					:ifStar='true'
-					:index='item.ID'
-					:question='item.QuestionStr'
-					:disable='true'
-					:answer='item.Answer'
-					:option='[item.ChoosenA, item.ChoosenB, item.ChoosenC, item.ChoosenD]'
-					@offStar="remove(num1, num2)"
-				>
-				</tk-question>
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
-			</div>
 			<transition-group
 				name="list-fade"
 				v-bind:css="false"
@@ -71,10 +46,6 @@
 			return {
 
 				chapterShow:[],
-<<<<<<< HEAD
-				data:[],
-				
-=======
 
 				data:[],
 
@@ -146,7 +117,6 @@
 						]
 					}
 				]
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
 			};
 		},
 		methods:{

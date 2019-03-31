@@ -4,10 +4,6 @@
 		<div class='q-option' v-for='(item, i) in tempOption'>
 			<div class='q-checkbox' v-if='currentType==="checkbox"'>
 				<input
-<<<<<<< HEAD
-=======
-
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
 					type='checkbox'
 					:id="identify+'-'+i"
 					:name='question'
@@ -20,14 +16,8 @@
 			</div>
 			<div class='q-checkbox' v-if='currentType!=="checkbox"'>
 				<input
-<<<<<<< HEAD
 					type='radio'
 					:id="identify+'-'+i" 
-=======
-
-					type='radio'
-					:id="identify+'-'+i"
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
 					:name='question'
 					:value="check[i]"
 					class='checkbox'
@@ -75,13 +65,9 @@
 				@change: 用户改变答案，返回的参数和answer一样
 			使用参考wrong和exam/paper，不保证不会出bug
 		*/
-<<<<<<< HEAD
 		
 		props:['type', 'ifShowStar', 'ifStar', 'index', 'question', 'onChoose', 'disable', 'option', 'answer', 'identify', 'bold'],
-=======
 
-		props:['type', 'ifShowStar', 'ifStar', 'index', 'question', 'onChoose', 'disable', 'option', 'answer', 'identify'],
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
 		data() {
 			return {
 				tempOption:[],
@@ -305,7 +291,6 @@
 		  background-color: #A4845D;
 	  }
 	}
-<<<<<<< HEAD
 	
 	
 .star-enter-active {
@@ -325,8 +310,3 @@
 }	
 	
 </style>
-=======
-
-
-</style>
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d

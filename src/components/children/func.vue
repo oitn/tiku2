@@ -38,26 +38,13 @@
 			gotoAdress(aim){
 				this.$router.push('/'+this.$route.params.subject+'/'+aim)
 			},
-<<<<<<< HEAD
 			routerHaveParams(aim) {
-        localStorage.setItem('useType',aim);
-        this.$router.push({
-          name: `precision`
-        })
-      }
+				localStorage.setItem('useType',aim);
+				this.$router.push({
+					name: `precision`
+				})
+			}
 		}
-=======
-      //2=>1=>2
-      routerHaveParams(aim) {
-        localStorage.setItem('useType',aim);
-        this.$router.push({
-          name: `precision`,
-
-        })
-      }
-
-    }
->>>>>>> 7c664f607e83fd354a4f38af30f8471c155d791d
 	}
 </script>
 

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		sou suo
+		<input type="text" class='input'>
 	</div>
 </template>
 
@@ -14,6 +14,6 @@
 	}
 </script>
 
-<style>
+<style lang='scss'>
 
 </style>
