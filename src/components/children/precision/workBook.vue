@@ -110,8 +110,11 @@
             break;
           case  'mul':
             let a = '';
+            let arr = this.currentAnswer;
+            let resArr = arr.sort();
+            console.log("resARRAy",resArr);
             for (let b = 0; b < this.currentAnswer.length; b++) {
-              a = a + this.currentAnswer[b];
+              a = a + resArr[b];
             }
             this.judge(a);
             break;
